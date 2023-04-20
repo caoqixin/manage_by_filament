@@ -7,12 +7,16 @@ use Filament\Widgets\StatsOverviewWidget\Card;
 
 class StatsOverview extends BaseWidget
 {
+
+    protected static ?int $sort = 1;
     protected function getCards(): array
     {
         return [
-            Card::make('Unique views', '192.1k'),
-            Card::make('Bounce rate', '21%'),
-            Card::make('Average time on page', '3:12'),
+            Card::make('库存数量', '192.1k'),
+            Card::make('今日销量', '60€')
+                ->description('相比昨天 32k 提升')
+                ->descriptionIcon('heroicon-s-trending-up'),
+            Card::make('', '3:12'),
         ];
     }
 }
