@@ -25,4 +25,16 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/history', function () {
+        return view('history');
+    })->name('history');
+
+    Route::get('/sell', function () {
+        return view('sell');
+    })->name('sell');
+
+    Route::get('/sell-sim', function () {
+        return view('sell-sim');
+    })->name('sell-sim');
 });
