@@ -82,14 +82,16 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\ImageColumn::make('thumbnail')->label('图片'),
-                Tables\Columns\TextColumn::make('ns')->label('商品编号'),
-                Tables\Columns\TextColumn::make('title')->label('商品名称'),
+                Tables\Columns\TextColumn::make('ns')->label('商品编号')->searchable(),
+                Tables\Columns\TextColumn::make('title')->label('商品名称')->searchable(),
                 Tables\Columns\TextColumn::make('stock')->label('库存'),
                 Tables\Columns\TextColumn::make('retail_price')->label('零售价'),
                 Tables\Columns\TextColumn::make('category.name')->label('商品分类'),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('category')
+                    ->multiple()
+                    ->relationship('category', 'name')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
