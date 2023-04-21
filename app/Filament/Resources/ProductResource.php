@@ -60,6 +60,7 @@ class ProductResource extends Resource
                                     ->required(),
                                 Forms\Components\Select::make('category_id')
                                     ->label('分类')
+                                    ->preload()
                                     ->searchable()
                                     ->relationship('category', 'name')
                                     ->required(),
