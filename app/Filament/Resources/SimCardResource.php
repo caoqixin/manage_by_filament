@@ -45,8 +45,8 @@ class SimCardResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('iccid'),
-                Tables\Columns\TextColumn::make('telephone'),
+                Tables\Columns\TextColumn::make('iccid')->searchable(),
+                Tables\Columns\TextColumn::make('telephone')->searchable(),
                 Tables\Columns\TextColumn::make('operator.name'),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime('d/m/Y'),
@@ -54,7 +54,9 @@ class SimCardResource extends Resource
                     ->boolean(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('opertor')
+                    ->multiple()
+                    ->relationship('operator', 'name')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
