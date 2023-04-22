@@ -69,7 +69,9 @@
                 <th scope="row" class="px-6 py-3 text-base">Total</th>
                 <td class="px-6 py-3"></td>
                 <td class="px-6 py-3 text-end" colspan="4">
-                    <button type="button" class="font-medium text-green-600 dark:text-green-500 hover:underline">结账
+                    <button type="button"
+                            wire:click="createOrder"
+                            class="font-medium text-green-600 dark:text-green-500 hover:underline">结账
                     </button>
                 </td>
             </tr>

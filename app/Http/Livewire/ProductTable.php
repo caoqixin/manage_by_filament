@@ -14,6 +14,12 @@ class ProductTable extends Component
         'product.amount' => 'required|numeric',
     ];
 
+    public function updatedProductAmount($value)
+    {
+        $this->product->update([
+            'amount' => $value
+        ]);
+    }
 
     public function remove()
     {
