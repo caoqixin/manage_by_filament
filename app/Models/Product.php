@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
@@ -36,5 +37,10 @@ class Product extends Model
     public function models(): BelongsToMany
     {
         return $this->belongsToMany(PhoneModel::class, 'product_model', 'product_id', 'model_id');
+    }
+
+    public function cartItem(): HasMany
+    {
+        return $this->hasMany(CartItem::class);
     }
 }
