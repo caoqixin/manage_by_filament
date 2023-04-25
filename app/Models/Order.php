@@ -12,7 +12,7 @@ class Order extends Model
 
     protected $fillable = [
         'no',
-        'total_amount'
+        'total_price'
     ];
 
     protected static function boot()
