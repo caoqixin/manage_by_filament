@@ -14,7 +14,7 @@ class OrderController extends Controller
         $order = DB::transaction(function () use ($items) {
             // 创建订单
             $order = new Order([
-                'total_amount' => 0
+                'total_price' => 0
             ]);
 
             // 写入数据库
@@ -40,7 +40,7 @@ class OrderController extends Controller
                 }
             }
             // 更新订单总金额
-            $order->update(['total_amount' => $totalPrice]);
+            $order->update(['total_price' => $totalPrice]);
             // 将下单的商品从购物车中移除
             foreach ($items as $item) {
                 $item->delete();
