@@ -67,8 +67,7 @@ class ProductResource extends Resource
                                 Forms\Components\Select::make('model_id')
                                     ->label('所属型号')
                                     ->multiple()
-                                    ->relationship('models', 'name')
-                                    ->required(),
+                                    ->relationship('models', 'name'),
                                 Forms\Components\Select::make('supplier_id')
                                     ->label('供应商')
                                     ->relationship('supplier', 'name')
