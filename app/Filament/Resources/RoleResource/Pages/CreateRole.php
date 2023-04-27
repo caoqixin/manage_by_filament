@@ -15,5 +15,17 @@ class CreateRole extends CreateRecord
         return $this->getResource()::getUrl('index');
     }
 
+    protected function getActions(): array
+    {
+        return [
+            Actions\Action::make('首页')->action('backHome')
+        ];
+    }
+
+    public function backHome()
+    {
+        return redirect($this->getRedirectUrl());
+    }
+
 
 }

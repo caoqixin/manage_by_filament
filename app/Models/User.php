@@ -64,7 +64,8 @@ class User extends Authenticatable implements FilamentUser
 
     protected $accessList = [
         'caoqixin7@gmail.com',
-        'bailingli0623@icloud.com'
+        'bailingli0623@icloud.com',
+        'xin@admin.com'
     ];
 
     public function canAccessFilament(): bool

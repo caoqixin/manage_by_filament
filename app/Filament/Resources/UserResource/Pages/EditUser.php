@@ -15,7 +15,13 @@ class EditUser extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Actions\Action::make('首页')->action('backHome')
         ];
+    }
+
+    public function backHome()
+    {
+        return redirect($this->getRedirectUrl());
     }
 
     protected function getRedirectUrl(): string

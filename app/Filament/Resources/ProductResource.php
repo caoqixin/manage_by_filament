@@ -41,6 +41,14 @@ class ProductResource extends Resource
                                 Forms\Components\TextInput::make('ns')
                                     ->required()
                                     ->autofocus()
+                                    ->unique()
+                                    ->afterStateUpdated(function (\Closure $set, $state) {
+                                        if ($product = Product::where('ns', $state)->first()) {
+                                            return redirect()->route('filament.resources.products.edit', [
+                                                'record' => $product->id
+                                            ]);
+                                        }
+                                    })
                                     ->label('商品编码')
                                     ->maxLength(255),
                                 Forms\Components\TextInput::make('title')

@@ -14,6 +14,12 @@ class ViewProduct extends ViewRecord
     {
         return [
             Actions\EditAction::make(),
+            Actions\Action::make('首页')->action('backHome')
         ];
+    }
+
+    public function backHome()
+    {
+        return redirect($this->getRedirectUrl());
     }
 }

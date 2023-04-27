@@ -14,11 +14,17 @@ class EditRole extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+            Actions\Action::make('首页')->action('backHome')
         ];
     }
 
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
+    }
+
+    public function backHome()
+    {
+        return redirect($this->getRedirectUrl());
     }
 }
