@@ -18,15 +18,15 @@ class HistoryTable extends Component implements HasTable
 
     protected function getTableQuery(): Builder
     {
-        return Order::query();
+        return Order::query()->orderBy('created_at', 'desc');
     }
 
     protected function getTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('no')->label('订单号'),
-//            Tables\Columns\TextColumn::make('total_price')->label('总金额')
-            Tables\Columns\TextColumn::make('total_amount')->label('总金额'),
+            Tables\Columns\TextColumn::make('total_price')->label('总金额'),
+//            Tables\Columns\TextColumn::make('total_amount')->label('总金额'),
             Tables\Columns\TextColumn::make('updated_at')->label('创建时间'),
 
         ];
