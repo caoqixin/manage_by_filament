@@ -50,4 +50,5 @@ class OrderController extends Controller
 
         return $order;
     }
+
 }

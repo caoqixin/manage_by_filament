@@ -30,6 +30,8 @@ Route::middleware([
         return view('history');
     })->name('history');
 
+    Route::get('/order/{id}', \App\Http\Livewire\Order::class)->name('order.view');
+
     Route::get('/sell', function () {
         return view('sell');
     })->name('sell');
